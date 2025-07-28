@@ -1,5 +1,6 @@
 // tailwind.config.ts
 
+import forms from '@tailwindcss/forms' // Importamos o plugin aqui no topo
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -16,8 +17,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
+  // E usamos a variável 'forms' que importamos aqui, em vez do 'require()'
+  plugins: [forms],
 }
 export default config

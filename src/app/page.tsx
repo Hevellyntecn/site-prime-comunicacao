@@ -4,31 +4,45 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight, X } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
+import Image from 'next/image';
+
+type PortfolioItem = {
+  type: 'image' | 'video';
+  src: string;
+  thumbnail?: string; // A interrogação '?' significa que esta propriedade é opcional
+  category: string;
+  title: string;      // Adicionamos o 'title' que estava faltando!
+  client: string;
+  className?: string; // Também opcional
+};
 
 export default function Home() {
   
   // Adicione esta lista de projetos aqui
-  const [selectedItem, setSelectedItem] = useState(null);
-const portfolioItems = [
+  const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
+const portfolioItems: PortfolioItem[] = [
     {
-      type: 'image', // Identifica que é uma imagem
-      src: '/Feed Mamur Oriental 30-6-2025.png', // Caminho para a imagem na pasta public
+      type: 'image',
+      src: '/Feed Mamur Oriental 30-6-2025.png',
       category: 'SOCIAL MEDIA',
+      title: 'Saboreie o Melhor do Oriental', // Título adicionado
       client: 'Mamur Oriental',
     },
     {
       type: 'image',
-      src: '/Feed Mamur Oriental 04-06-2025.png', // Use os nomes que você deu aos arquivos
+      src: '/Feed Mamur Oriental 04-06-2025.png',
       category: 'CAMPANHA',
+      title: 'Campanha Pula Fogueira', // Título adicionado
       client: 'Campel Distribuidora',
     },
     {
-      type: 'video', // Identifica que é um vídeo
-      src: '/0716.mp4', // Você precisaria colocar um vídeo na pasta
-      thumbnail: '/0716.mp4', // E uma imagem de capa para ele
+      type: 'video',
+      src: '/0716.mp4',
+      thumbnail: '/0716.mp4',
       category: 'VÍDEO',
+      title: 'Vídeo Sorridente', // Título adicionado
       client: 'Sorridente',
-      className: 'w-auto max-h[75vh] rounded-lg',
+      className: 'w-auto max-h-[75vh] rounded-lg', // Corrigi um pequeno erro aqui, era max-h[75vh] e o certo é max-h-[75vh]
     },
   ];
 
