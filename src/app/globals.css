@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #111111; /* Nosso fundo preto/cinza escuro */
+  color: white; /* Cor padrão do texto */
+}
+
+html {
+  scroll-behavior: smooth;
+}
